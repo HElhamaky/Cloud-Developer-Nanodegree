@@ -42,3 +42,4 @@ In this project you will deploy a static website to AWS.
 4. `Upload the website files` to your bucket
 5. `Speed Up content delivery` using AWS's content distribution network service, CloudFront
 6. `Access your website` in a browser using the unique S3 endpoint
+
