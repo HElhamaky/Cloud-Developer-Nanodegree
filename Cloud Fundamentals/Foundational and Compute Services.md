@@ -52,6 +52,54 @@ Amazon EBS is recommended when data must be quickly accessible and requires **lo
 
 [Read More on EBS >>](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html)
 
+## Virtual Private Cloud
+A virtual private cloud (VPC) is an on-demand configurable pool of shared computing resources allocated within a public cloud environment, providing a certain level of isolation between the different organizations (denoted as users hereafter) using the resources. 
+
+The isolation between one VPC user and all other users of the same cloud (other VPC users as well as other public cloud users) is achieved normally through allocation of a private IP subnet and a virtual communication construct (such as a VLAN or a set of encrypted communication channels) per user. 
+
+In a VPC, the previously described mechanism, providing isolation within the cloud, is accompanied with a VPN function (again, allocated per VPC user) that secures, by means of authentication and encryption, the remote access of the organization to its VPC resources. 
+
+With the introduction of the described isolation levels, an organization using this service is in effect working on a 'virtually private' cloud (that is, as if the cloud infrastructure is not shared with other users), and hence the name VPC.
+
+VPC is most commonly used in the context of cloud infrastructure as a service. In this context, the infrastructure provider, providing the underlying public cloud infrastructure, and the provider realizing the VPC service over this infrastructure, may be different vendors.
+
+## Amazon Virtual Private Cloud
+> Provision a logically isolated section of the AWS cloud where you can launch AWS resources in a virtual network that you define
+
+Amazon Virtual Private Cloud (Amazon VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define.
+
+You have complete control over your virtual networking environment, including selection of your own IP address range, creation of subnets, and configuration of route tables and network gateways. You can use both IPv4 and IPv6 in your VPC for secure and easy access to resources and applications.
+
+You can easily customize the network configuration of your Amazon VPC. For example, you can create a public-facing subnet for your web servers that have access to the internet. You can also place your backend systems, such as databases or application servers, in a private-facing subnet with no internet access. You can use multiple layers of security, including security groups and network access control lists, to help control access to Amazon EC2 instances in each subnet.
+
+### Benefits
+#### Secure
+Amazon VPC provides advanced security features, such as security groups and network access control lists, to enable inbound and outbound filtering at the instance and subnet level. In addition, you can store data in Amazon S3 and restrict access so that it’s only accessible from instances inside your VPC. For additional security, you can create dedicated instances that are physically isolated from other AWS accounts, at the hardware level.
+
+#### Simple
+Create a VPC quickly and easily using the AWS Management Console. Select from common network setups and find the best match for your needs. Subnets, IP ranges, route tables, and security groups are automatically created. You spend less time setting up and managing, so you can concentrate on building the applications that run in your VPCs.
+
+#### Customizable
+Control your virtual networking environment, including selection of your own IP address range, creation of subnets, and configuration of route tables and network gateways. Customize the network configuration, such as by creating a public-facing subnet for your webservers that has access to the internet, and placing your backend systems such as databases or application servers in a private-facing subnet with no internet access.
+
+[Read More on Amazon VPC >>](https://aws.amazon.com/vpc/)
+
+### Amazon VPC Concepts
+Amazon VPC is the **networking layer** for Amazon EC2.
+
+The following are the key concepts for VPCs:
+
+* A *virtual private cloud* (VPC) is a virtual network dedicated to your AWS account.
+
+* A *subnet* is a range of IP addresses in your VPC.
+
+* A *route table* contains a set of rules, called routes, that are used to determine where network traffic is directed.
+
+* An *internet gateway* is a horizontally scaled, redundant, and highly available VPC component that allows communication between instances in your VPC and the internet. It therefore imposes no availability risks or bandwidth constraints on your network traffic.
+
+* A VPC *endpoint* enables you to privately connect your VPC to supported AWS services and VPC endpoint services powered by PrivateLink without requiring an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC do not require public IP addresses to communicate with resources in the service. Traffic between your VPC and the other service does not leave the Amazon network.
+
+
 ## Summary
 
 #### Servers In The Cloud
@@ -83,3 +131,26 @@ Elastic Block Store (EBS) is a storage solution for EC2 instances and is a physi
 #### Tips
 * EBS is found on the EC2 Dashboard.
 * There are several EBS volume types that fall under the categories of Solid State Drives (SSD) and Hard Disk Drives (HDD).
+
+#### Security
+Security in the cloud allows you to have complete control over your virtual networking environment.
+
+* Configure your virtual network with public or private facing subnets
+* Launch your servers in the selected network to secure access
+
+
+#### Virtual Private Cloud (VPC)
+Virtual Private Cloud or VPC allows you to create your own private network in the cloud. You can launch services, like EC2, inside of that private network. A VPC spans all the Availability Zones in the region.
+
+VPC allows you to control your virtual networking environment, which includes:
+
+* IP address ranges
+* subnets
+* route tables
+* network gateways
+#### Tips
+* VPC is found under Networking & Content Delivery section of the AWS Management Console.
+* The default limit is **5 VPCs per Region**. You can request an increase for these limits.
+* Your AWS resources are automatically provisioned in a default VPC.
+* There are no additional charges for creating and using the VPC.
+* You can store data in Amazon S3 and restrict access so that it’s only accessible from instances in your VPC.
