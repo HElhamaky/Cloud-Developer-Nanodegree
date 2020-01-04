@@ -41,6 +41,8 @@ Amazon EC2 passes on to you the financial benefits of Amazon’s scale. You pay 
 #### EASY TO START
 Quickly get started with Amazon EC2 by visiting the AWS Management Console to choose preconfigured software on Amazon Machine Images (AMIs). You can quickly deploy this software to EC2 via the EC2 console.
 
+
+
 ## Amazon Elastic Block Store (Amazon EBS)
 Amazon Elastic Block Store (Amazon EBS) provides **block level storage volumes** for use with EC2 instances. EBS volumes **behave like raw, unformatted block devices**. You can mount these volumes as devices on your instances. You can **mount multiple volumes** on the same instance, but each volume can be **attached to only one instance at a time**. You can create a **file system** on top of these volumes, or **use them in any way** you would use a block device (like a hard drive). You can **dynamically change the configuration of a volume** attached to an instance.
 
@@ -52,7 +54,7 @@ Amazon EBS is recommended when data must be quickly accessible and requires **lo
 
 [Read More on EBS >>](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html)
 
-## Virtual Private Cloud
+## Virtual Private Cloud (VPC)
 A virtual private cloud (VPC) is an on-demand configurable pool of shared computing resources allocated within a public cloud environment, providing a certain level of isolation between the different organizations (denoted as users hereafter) using the resources. 
 
 The isolation between one VPC user and all other users of the same cloud (other VPC users as well as other public cloud users) is achieved normally through allocation of a private IP subnet and a virtual communication construct (such as a VLAN or a set of encrypted communication channels) per user. 
@@ -99,10 +101,117 @@ The following are the key concepts for VPCs:
 
 * A VPC *endpoint* enables you to privately connect your VPC to supported AWS services and VPC endpoint services powered by PrivateLink without requiring an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC do not require public IP addresses to communicate with resources in the service. Traffic between your VPC and the other service does not leave the Amazon network.
 
+### Accessing Amazon VPC
+You can create, access, and manage your VPCs using any of the following interfaces:
+
+* **AWS Management Console**— Provides a web interface that you can use to access your VPCs.
+
+* **AWS Command Line Interface (AWS CLI)** — Provides commands for a broad set of AWS services, including Amazon VPC, and is supported on Windows, Mac, and Linux. 
+
+* **AWS SDKs** — Provides language-specific APIs and takes care of many of the connection details, such as calculating signatures, handling request retries, and error handling. 
+
+* **Query API**— Provides low-level API actions that you call using HTTPS requests. Using the Query API is the most direct way to access Amazon VPC, but it requires that your application handle low-level details such as generating the hash to sign the request, and error handling. 
+
+[Read More from Amazon VPC Documentation >>](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html)
+
+
+
+## AWS Lambda
+> Run code without thinking about servers. Pay only for the compute time you consume.
+
+AWS Lambda lets you run code without provisioning or managing servers. You pay only for the compute time you consume.
+
+With Lambda, you can run code for virtually any type of application or backend service - all with zero administration. Just upload your code and Lambda takes care of everything required to run and scale your code with high availability. You can set up your code to automatically trigger from other AWS services or call it directly from any web or mobile app.
+
+### Benefits
+
+#### NO SERVERS TO MANAGE
+AWS Lambda automatically runs your code without requiring you to provision or manage servers. Just write the code and upload it to Lambda.
+
+#### CONTINUOUS SCALING
+AWS Lambda automatically scales your application by running code in response to each trigger. Your code runs in parallel and processes each trigger individually, scaling precisely with the size of the workload.
+
+#### SUBSECOND METERING
+With AWS Lambda, you are charged for every 100ms your code executes and the number of times your code is triggered. You pay only for the compute time you consume. 
+
+#### CONSISTENT PERFORMANCE
+With AWS Lambda, you can optimize your code execution time by choosing the right memory size for your function. You can also enable Provisioned Concurrency to keep your functions initialized and hyper-ready to respond within double digit milliseconds.
+
+## Lambda Use cases
+What can you build with AWS Lambda? Learn more about the use cases below:
+
+### Data processing
+You can use AWS Lambda to execute code in response to triggers such as changes in data, shifts in system state, or actions by users. Lambda can be directly triggered by AWS services such as S3, DynamoDB, Kinesis, SNS, and CloudWatch, or it can be orchestrated into workflows by AWS Step Functions. This allows you to build a variety of real-time serverless data processing systems.
+#### REAL-TIME FILE PROCESSING
+You can use Amazon S3 to trigger AWS Lambda to process data immediately after an upload. For example, you can use Lambda to thumbnail images, transcode videos, index files, process logs, validate content, and aggregate and filter data in real-time.
+
+![](https://d1.awsstatic.com/product-marketing/Lambda/Diagrams/product-page-diagram_Lambda-RealTimeFileProcessing.a59577de4b6471674a540b878b0b684e0249a18c.png)
+
+#### REAL-TIME STREAM PROCESSING
+You can use AWS Lambda and Amazon Kinesis to process real-time streaming data for application activity tracking, transaction order processing, click stream analysis, data cleansing, metrics generation, log filtering, indexing, social media analysis, and IoT device data telemetry and metering.
+
+![](https://d1.awsstatic.com/product-marketing/Lambda/Diagrams/product-page-diagram_Lambda-RealTimeStreamProcessing.d79d55b5f3a5d6b58142a6c0fc8a29eadc81c02b.png)
+
+#### EXTRACT, TRANSFORM, LOAD
+You can use AWS Lambda to perform data validation, filtering, sorting, or other transformations for every data change in a DynamoDB table and load the transformed data to another data store.
+![](https://d1.awsstatic.com/product-marketing/Lambda/Diagrams/product-page-diagram_Lambda-ExtractTransformLoad.21c3171be43ce5afb20bf6e54b0a5054c05a0803.png)
+
+### Backends
+You can build serverless backends using AWS Lambda to handle web, mobile, Internet of Things (IoT), and 3rd party API requests. Take advantage of Lambda’s consistent performance controls, such as multiple memory configurations and Provisioned Concurrency, for building latency-sensitive applications at any scale.
+
+#### WEB APPLICATIONS
+By combining AWS Lambda with other AWS services, developers can build powerful web applications that automatically scale up and down and run in a highly available configuration across multiple data centers – with zero administrative effort required for scalability, back-ups or multi-data center redundancy.
+![](https://d1.awsstatic.com/product-marketing/Lambda/Diagrams/product-page-diagram_Lambda-WebApplications%202.c7f8cf38e12cb1daae9965ca048e10d676094dc1.png)
+
+#### IOT BACKENDS
+You can build serverless backends using AWS Lambda to handle web, mobile, Internet of Things (IoT), and 3rd party API requests.
+![](https://d1.awsstatic.com/product-marketing/Lambda/Diagrams/product-page-diagram_Lambda-IoTBackends.3440c7f50a9b73e6a084a242d44009dc0fbe5fab.png)
+
+#### MOBILE BACKENDS
+AWS Lambda makes it easy to create rich, personalized app experiences. You can build backends using AWS Lambda and Amazon API Gateway to authenticate and process API requests. Use AWS Amplify to easily integrate your backend with your iOS, Android, Web, and React Native frontends.
+![](https://d1.awsstatic.com/product-marketing/Lambda/Diagrams/product-page-diagram_Lambda-MobileBackends_option2.00f6421e67e8d6bdbc59f3a2db6fa7d7f8508073.png)
+
+[Getting Started With AWS Lambda >>](https://aws.amazon.com/lambda/) 
+
+## AWS Elastic Beanstalk
+> Easy to begin, Impossible to outgrow
+
+AWS Elastic Beanstalk is an easy-to-use service for deploying and scaling web applications and services developed with Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker on familiar servers such as Apache, Nginx, Passenger, and IIS.
+
+You can simply upload your code and Elastic Beanstalk automatically handles the deployment, from capacity provisioning, load balancing, auto-scaling to application health monitoring. At the same time, you retain full control over the AWS resources powering your application and can access the underlying resources at any time.
+
+There is no additional charge for Elastic Beanstalk - you pay only for the AWS resources needed to store and run your applications.
+
+Elastic Beanstalk supports applications developed in Go, Java, .NET, Node.js, PHP, Python, and Ruby. When you deploy your application, Elastic Beanstalk builds the selected supported platform version and provisions one or more AWS resources, such as Amazon EC2 instances, to run your application.
+
+You can interact with Elastic Beanstalk by using the AWS Management Console, the AWS Command Line Interface (AWS CLI), or eb, a high-level CLI designed specifically for Elastic Beanstalk.
+
+To use Elastic Beanstalk, you create an application, upload an application version in the form of an application source bundle (for example, a Java .war file) to Elastic Beanstalk, and then provide some information about the application. Elastic Beanstalk automatically launches an environment and creates and configures the AWS resources needed to run your code. After your environment is launched, you can then manage your environment and deploy new application versions. The following diagram illustrates the workflow of Elastic Beanstalk.
+
+![](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/clearbox-flow-00.png)
+
+After you create and deploy your application, information about the application—including metrics, events, and environment status—is available through the AWS Management Console, APIs, or Command Line Interfaces, including the unified AWS CLI.
+
+### Benefits
+
+#### Fast and simple to begin
+Elastic Beanstalk is the fastest and simplest way to deploy your application on AWS. You simply use the AWS Management Console, a Git repository, or an integrated development environment (IDE) such as Eclipse or Visual Studio to upload your application, and Elastic Beanstalk automatically handles the deployment details of capacity provisioning, load balancing, auto-scaling, and application health monitoring. Within minutes, your application will be ready to use without any infrastructure or resource configuration work on your part.
+
+#### Developer productivity
+Elastic Beanstalk provisions and operates the infrastructure and manages the application stack (platform) for you, so you don't have to spend the time or develop the expertise. It will also keep the underlying platform running your application up-to-date with the latest patches and updates. Instead, you can focus on writing code rather than spending time managing and configuring servers, databases, load balancers, firewalls, and networks.
+
+#### Impossible to outgrow
+Elastic Beanstalk automatically scales your application up and down based on your application's specific need using easily adjustable Auto Scaling settings. For example, you can use CPU utilization metrics to trigger Auto Scaling actions. With Elastic Beanstalk, your application can handle peaks in workload or traffic while minimizing your costs.
+
+#### Complete resource control
+You have the freedom to select the AWS resources, such as Amazon EC2 instance type, that are optimal for your application. Additionally, Elastic Beanstalk lets you "open the hood" and retain full control over the AWS resources powering your application. If you decide you want to take over some (or all) of the elements of your infrastructure, you can do so seamlessly by using Elastic Beanstalk's management capabilities.
+
+[More on AWS Elastic Beanstalk >> ](https://aws.amazon.com/elasticbeanstalk/)
+
 
 ## Summary
 
-#### Servers In The Cloud
+### Servers In The Cloud
 Servers in the cloud have revolutionized the IT industry.
 
 * Scale capacity up and down based on demands.
@@ -110,7 +219,7 @@ Servers in the cloud have revolutionized the IT industry.
 * Obtain servers in minutes.
 * No need for onsite hardware or capital expenses.
 
-#### Elastic Cloud Compute
+### Elastic Cloud Compute
 Elastic Cloud Compute or EC2 is a foundational piece of AWS' cloud computing platform and is a service that provides servers for rent in the cloud.
 
 #### Pricing Options
@@ -125,21 +234,26 @@ There are several pricing options for EC2.
 * Spot instances can save you up to 90% off the on-demand pricing.
 * There are several instance types that provide varying combinations of CPU, memory, storage, and networking capacity.
 
-#### Elastic Block Store
+***
+
+### Elastic Block Store
 Elastic Block Store (EBS) is a storage solution for EC2 instances and is a physical hard drive that is attached to the EC2 instance to increase storage.
 
 #### Tips
 * EBS is found on the EC2 Dashboard.
 * There are several EBS volume types that fall under the categories of Solid State Drives (SSD) and Hard Disk Drives (HDD).
 
-#### Security
+***
+
+### Security
 Security in the cloud allows you to have complete control over your virtual networking environment.
 
 * Configure your virtual network with public or private facing subnets
 * Launch your servers in the selected network to secure access
 
+***
 
-#### Virtual Private Cloud (VPC)
+### Virtual Private Cloud (VPC)
 Virtual Private Cloud or VPC allows you to create your own private network in the cloud. You can launch services, like EC2, inside of that private network. A VPC spans all the Availability Zones in the region.
 
 VPC allows you to control your virtual networking environment, which includes:
@@ -154,3 +268,38 @@ VPC allows you to control your virtual networking environment, which includes:
 * Your AWS resources are automatically provisioned in a default VPC.
 * There are no additional charges for creating and using the VPC.
 * You can store data in Amazon S3 and restrict access so that it’s only accessible from instances in your VPC.
+
+***
+
+### Compute Power In The Cloud
+Compute power in the cloud is a faster way to build applications, providing:
+
+* no servers to manage (i.e. serverless)
+* ability to continuously scale
+* ability to run code on demand in response to events
+* pay only when your code runs
+
+***
+
+
+### Lambda
+AWS Lambda provides you with computing power in the cloud by allowing you to execute code without standing up or managing servers.
+#### Tips
+* Lambda is found under the Compute section on the AWS Management Console.
+* Lambdas have a time limit of 15 minutes.
+* The code you run on AWS Lambda is called a “Lambda function.”
+* Lambda code can be triggered by other AWS services.
+* AWS Lambda supports Java, Go, PowerShell, Node.js, C#/.NET, Python, and Ruby. There is a Runtime API that allows you to use other programming languages to author your functions.
+* Lambda code can be authored via the console.
+
+***
+
+### Elastic Beanstalk
+Elastic Beanstalks is an orchestration service that allows you to deploy a web application at the touch of a button by spinning up (or provisioning) all of the services that you need to run your application.
+
+#### Tips
+* Elastic Beanstalk is found under the Compute section of the AWS Management Console.
+* Elastic Beanstalk can be used to deployed web applications developed with Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker.
+* You can run your applications in a VPC.
+
+
